@@ -31,7 +31,7 @@ $> sync
 $> sudo btrace /dev/sda &> sync1_delete.btrace &    # 백그라운드로 btrace 실행
 $> ./sqlite3 test.db < test_query/sync10_wal.sql  # 쿼리 파일 수행
 $> sudo killall -15 btrace blktrace # -15 빼먹지 않도록 주의
-$> sudo grep "D\s\+W\|D\s\+R\|I\s\+F" sync1_delete.btrace > sync1_delete.RWF # 로그파일 가공
+$> sudo grep "D\s\+W\|D\s\+R\|A\s\+F" sync1_delete.btrace > sync1_delete.RWF # 로그파일 가공
 $> sudo rm -f sync1_delete.btrace   # 불필요한 로그파일 삭제
 $> sudo chown 자신의아이디 sync1_delete.RWF # 분석을 위한 권한 설정
 
