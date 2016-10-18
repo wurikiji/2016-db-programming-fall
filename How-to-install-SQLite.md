@@ -19,8 +19,8 @@ $> wget https://www.python.org/ftp/python/2.7.12/Python-2.7.12.tgz
 $> tar xvf Python-2.7.12.tgz
 $> cd Python-2.7.12
 $> make clean # ignore error
-$> LD_RUN_PATH={YOUR_SQLITE_DIR}/.libs ./configure LD_FLAGS="-L{YOUR_SQLITE_DIR}/.libs" CPPFLAGS="-I{YOUR_SQLITE_DIR}/include"
-$> LD_RUN_PATH={YOUR_SQLITE_DIR}/.libs make && sudo make install
+$> LD_RUN_PATH=YOUR_SQLITE_DIR/.libs ./configure LD_FLAGS="-LYOUR_SQLITE_DIR/.libs" CPPFLAGS="-IYOUR_SQLITE_DIR/include"
+$> LD_RUN_PATH=YOUR_SQLITE_DIR/.libs make && sudo make install
 ```
 
 If you see the same result through the same command below, then it's done. Version number should be your sqlite version. 
