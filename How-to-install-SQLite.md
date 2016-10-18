@@ -1,4 +1,4 @@
-Before run `py-tpcc`, **you should re-compile and install python** by yourself. Do samething for original SQLite test and your own SQLite test.  
+Before run `py-tpcc`, **you should re-compile and install python** by yourself. Do samething for original SQLite test and your own SQLite LDtest.  
 Please follow this descriptions. 
 
 >(원본 SQLite 테스트 전에도 아래 작업을 먼저 수행해야 하고, 수정된 SQLite 테스트 시에도 아래 작업을 먼저 수행해야 합니다. )
@@ -18,11 +18,12 @@ And compile and install python
 $> wget https://www.python.org/ftp/python/2.7.12/Python-2.7.12.tgz
 $> tar xvf Python-2.7.12.tgz
 $> cd Python-2.7.12
-$> ./configure
-$> make clean && make && sudo make install
+$> LD_RUN_PATH={YOUR_SQLITE_DIR}/.libs ./configure LD_FLAGS="-L{YOUR_SQLITE_DIR}/.libs" CPPFLAGS="-I{YOUR_SQLITE_DIR}/include"
+$> make clean && LD_RUN_PATH={YOUR_SQLITE_DIR}/.libs make && sudo make install
 ```
 
 If you see the same result through the same command below, then it's done. Version number should be your sqlite version. 
+
 ```bash
 $> python
 >>> import sqlite3
